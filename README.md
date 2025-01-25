@@ -2,16 +2,17 @@
 <img align="center" src="https://i.imgur.com/ByWZCEh.jpg" alt="CS:GO Remake"/>
 
 Mod inspired by the popular Counter Strike: Global Offensive.
-Running only on AmxModX 1.8.3 / 1.9.0 / 1.10.0
+Running only on AmxModX 1.9.0 / 1.10.0
 
 ## Download
 [Click HERE](https://github.com/ShadowsAdi/CSGORemake/releases/latest)
 
-## Requirements
-- AmxModX 1.9.0-5271+
-- ReHLDS  v3.13.0.788+
-- ReGameDLL v5.26.0.668+
-- ReAPI v5.24.0.300+
+> [!IMPORTANT]
+> Requirements:
+> - AmxModX 1.9.0-5271+
+> - ReHLDS  v3.13.0.788+
+> - ReGameDLL v5.26.0.668+
+> - ReAPI v5.24.0.300+
 
 ## Install
 Download latest release from [here](https://github.com/ShadowsAdi/CSGORemake/archive/master.zip).
