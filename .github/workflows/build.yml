@@ -46,7 +46,7 @@ jobs:
           echo "::set-output name=semver::${{ steps.semver_parser.outputs.fullversion }}"
       - name: Setup latest ReAPI includes
         env:
-          REPO: "s1lentq/reapi"
+          REPO: "rehlds/ReAPI"
         run: |
           mkdir -p dep/reapi
           cd dep/reapi
