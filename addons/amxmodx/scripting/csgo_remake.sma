@@ -2342,7 +2342,7 @@ public reg_menu_handler(id, menu, item)
 		}
 		case 3:
 		{
-			new spLen = strlen(g_szUserPassword[id])
+			new spLen = strlen(g_szUser_SavedPass[id])
 
 			if (strlen(g_szUserPassword[id]) <= 0) 
 			{
@@ -2360,6 +2360,7 @@ public reg_menu_handler(id, menu, item)
 			else
 			{
 				g_bLogged[id] = true
+				_LoadSkins(id)
 				CC_SendMessage(id, " ^1%L", LANG_SERVER, "CSGOR_LOGIN_SUCCESS")
 				ExecuteForward(g_iForwards[ user_log_in ], g_iForwardResult, id)
 			}
@@ -2379,7 +2380,7 @@ public reg_menu_handler(id, menu, item)
 					return _MenuExit(menu)
 				}
 
-				copy(g_szUser_SavedPass[id], 15, g_szUserPassword[id])
+				copy(g_szUser_SavedPass[id], charsmax(g_szUser_SavedPass), g_szUserPassword[id])
 
 				g_bLogged[id] = true
 
@@ -6478,12 +6479,16 @@ public ev_DeathMsg()
 
 	if(g_iUserSelectedSkin[killer][bIsStattrack][iWID])
 	{
-		new ePlayerSkins[PlayerSkins]
-		ArrayGetArray(g_aPlayerSkins[killer], g_iUserSelectedSkin[killer][iUserStattrack][iWID], ePlayerSkins)
+		new ePlayerSkins[PlayerSkins], iFound, eSkinData[SkinData]
+		ePlayerSkins = GetPlayerSkin(killer, g_iUserSelectedSkin[killer][iUserStattrack][iWID], iFound)
 
 		ePlayerSkins[iKills]++
 
-		ArrayPushArray(g_aPlayerSkins[killer], ePlayerSkins)
+		ArraySetArray(g_aPlayerSkins[killer], iFound, ePlayerSkins)
+
+		ArrayGetArray(g_aSkinData, g_iUserSelectedSkin[killer][iUserStattrack][iWID], eSkinData)
+
+		UpdatePlayerSkin(killer, eSkinData[szSkinName], ePlayerSkins)
 	}
 
 	new bool:levelup
